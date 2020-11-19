@@ -1,4 +1,5 @@
 import javax.swing.*;
+import javax.swing.border.Border;
 import java.awt.*;
 
 public class GraphicalInterface extends JFrame {
@@ -44,20 +45,35 @@ public class GraphicalInterface extends JFrame {
         JPanel mainPanel = new JPanel();
         mainPanel.setLayout(new BorderLayout());
 
-        JPanel informationPanel = new JPanel();
-        informationPanel.setBackground(Color.RED);
-        informationPanel.setPreferredSize(new Dimension((int) (this.getWidth() * 0.25), this.getHeight()));
-        mainPanel.add(informationPanel, BorderLayout.LINE_START);
+        JPanel buttonPanel = new JPanel();
+        buttonPanel.setBackground(Color.RED);
+        buttonPanel.setPreferredSize(new Dimension((int) (this.getWidth() * 0.25), this.getHeight()));
+        mainPanel.add(buttonPanel, BorderLayout.LINE_START);
 
         JPanel gamePanel = new JPanel();
         gamePanel.setBackground(Color.GREEN);
         mainPanel.add(gamePanel, BorderLayout.CENTER);
 
 
-        JPanel textInformationPanel = new JPanel();
-        textInformationPanel.setBackground(Color.BLUE);
-        textInformationPanel.setPreferredSize(new Dimension(this.getWidth(), (int) (this.getHeight() * 0.2)));
-        mainPanel.add(textInformationPanel, BorderLayout.PAGE_END);
+        JPanel informationPanel = new JPanel();
+        informationPanel.setBackground(Color.BLUE);
+        informationPanel.setPreferredSize(new Dimension(this.getWidth(), (int) (this.getHeight() * 0.225)));
+        mainPanel.add(informationPanel, BorderLayout.PAGE_END);
+
+        informationPanel.setLayout(new BorderLayout());
+
+
+        JPanel innerPanel = new JPanel(new GridLayout(1,2));
+        innerPanel.add(new JPanel());
+        innerPanel.add(new JPanel());
+
+        informationPanel.add(innerPanel,BorderLayout.CENTER);
+
+        JTextPane informationTextPanel = new JTextPane();
+        informationTextPanel.setEditable(false);
+        informationTextPanel.setText("Hello and Welcome to Farkle!");
+        informationPanel.add(informationTextPanel,BorderLayout.PAGE_END);
+
         return mainPanel;
     }
 }
