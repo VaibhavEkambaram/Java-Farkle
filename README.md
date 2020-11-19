@@ -2,5 +2,6 @@
 A two player version of the dice game farkle
 
 ## Current Focus
-Implement basic turn based networking stack
+* Implement basic turn based networking stack
+* work on gui basics
 
